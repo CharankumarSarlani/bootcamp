@@ -1,6 +1,6 @@
 package com.models;
 
-public class  Rectangle implements ClosedShape {
+public class Rectangle implements ClosedShape {
 
     private final int length;
     private final int width;
@@ -12,11 +12,11 @@ public class  Rectangle implements ClosedShape {
 
     @Override
     public int area() {
-        return length* width;
+        return length * width;
     }
 
     @Override
     public int perimeter() {
-        return 2*(length+ width);
+        return 2 * (length + width);
     }
 }

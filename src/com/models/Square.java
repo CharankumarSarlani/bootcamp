@@ -1,19 +1,7 @@
 package com.models;
 
-public class Square implements ClosedShape{
-    private final int side;
-
+public class Square  extends  Rectangle{
     public Square(int side) {
-        this.side = side;
-    }
-
-    @Override
-    public int area() {
-        return side*side;
-    }
-
-    @Override
-    public int perimeter() {
-        return 2*2*side;
+        super(side,side);
     }
 }
