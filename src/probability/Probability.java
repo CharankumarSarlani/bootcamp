@@ -1,21 +1,42 @@
 package probability;
 
+import org.omg.CORBA.DynAnyPackage.InvalidValue;
+
+import java.util.Objects;
+
 public class Probability {
-    private final int favourableOutcomes;
-    private final int totalOutcomes;
 
-    public Probability(int favourableOutcomes, int totalOutcomes) {
-        this.favourableOutcomes = favourableOutcomes;
-        this.totalOutcomes = totalOutcomes;
+    private final double chances;
+
+    private Probability(double chances) {
+        this.chances = chances;
     }
 
+    public static Probability createProbability(double chances) throws InvalidValue {
+        if (chances >= 0 && chances <= 1) {
+            return new Probability(chances);
+        }
 
-
-    public  double occur() {
-        return (double)favourableOutcomes/totalOutcomes;
+        throw new InvalidValue("invalid value entered");
     }
 
-    public double compliment() {
-        return 1.0 - this.occur();
+    public Probability compliment() {
+        return new Probability(1 - chances);
+    }
+
+    public Probability and(Probability probability) {
+        return new Probability(chances * probability.chances);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Probability that = (Probability) o;
+        return Double.compare(chances, that.chances) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(chances);
     }
 }
