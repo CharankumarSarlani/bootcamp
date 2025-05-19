@@ -6,4 +6,5 @@ class MainTest {
     void name() {
         assertEquals(1,1);
     }
+
 }
