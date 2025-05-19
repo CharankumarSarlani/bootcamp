@@ -24,8 +24,13 @@ public class Probability {
         return new Probability(1 - chances);
     }
 
-    public Probability and(Probability probability) {
-        return new Probability(chances * probability.chances);
+    public Probability and(Probability other) {
+        return new Probability(chances * other.chances);
+    }
+
+    public Probability or(Probability other) {
+        return new Probability(chances + other.chances - this.and(other).chances);
+
     }
 
     @Override
@@ -38,5 +43,6 @@ public class Probability {
     @Override
     public int hashCode() {
         return Objects.hashCode(chances);
+
     }
 }
