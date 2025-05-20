@@ -12,7 +12,7 @@ public class Probability {
         this.chances = chances;
     }
 
-    public static Probability createProbability(double chances) throws InvalidValue {
+    public static Probability create(double chances) throws InvalidValue {
         if (chances >= 0 && chances <= 1) {
             return new Probability(chances);
         }
