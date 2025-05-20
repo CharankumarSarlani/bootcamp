@@ -7,8 +7,13 @@ import static org.junit.jupiter.api.Assertions.*;
 class VolumeTest  {
     @Test
     void shouldCompareGallonsAndLitres() {
-        Volume fromLitre = Volume.createFromLitre(3.78);
-        Volume fromGallon = new Volume(1);
+        Volume fromGallon = Volume.create(1,Unit.valueOf("GALLON"));
+        Volume fromLitre = new Volume(1);
         assertEquals(fromLitre,fromGallon);
+    }
+
+    @Test
+    void shouldAddDifferentUnits() {
+
     }
 }

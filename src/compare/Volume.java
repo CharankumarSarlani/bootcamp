@@ -3,27 +3,26 @@ package compare;
 import java.util.Objects;
 
 public class Volume {
+    private final double litre;
 
-    public static final double FACTOR = 1 / 3.78;
-    private final double gallon;
-
-    public Volume(double gallon) {
-        this.gallon = gallon;
+    public Volume(double litre) {
+        this.litre = litre;
     }
 
-    public static Volume createFromLitre(double litre) {
-        return new Volume(litre * FACTOR);
+    public static Volume create(double litre, Unit unit) {
+        return new Volume(litre * unit.getFactor());
     }
+
 
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Volume volume = (Volume) o;
-        return Double.compare(gallon, volume.gallon) == 0;
+        return Double.compare(litre, volume.litre) == 0;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(gallon);
+        return Objects.hashCode(litre);
     }
 }
