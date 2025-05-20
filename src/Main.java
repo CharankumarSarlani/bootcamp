@@ -1,3 +1,4 @@
+import com.models.ClosedShape;
 import com.models.Rectangle;
 import com.models.Square;
 
@@ -5,7 +6,7 @@ import com.models.Square;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        Rectangle rectangle = new Rectangle(1,3);
+        ClosedShape rectangle = new Rectangle(1,3);
         System.out.printf("Area of the rectangle is %d\n", rectangle.area());
 
         Square square = new Square(2);

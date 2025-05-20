@@ -3,10 +3,10 @@ package compare;
 import java.util.Objects;
 
 public class Length {
-    private final int value;
+    private final int mm;
 
-    public Length(int value) {
-        this.value = value;
+    public Length(int mm) {
+        this.mm = mm;
     }
 
     public static Length createFromFeet(int feet) {
@@ -25,11 +25,11 @@ public class Length {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Length length = (Length) o;
-        return value == length.value;
+        return mm == length.mm;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(value);
+        return Objects.hashCode(mm);
     }
 }
